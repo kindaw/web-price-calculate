@@ -1,6 +1,29 @@
 <form>
-  <label for="textbox">Enter a research point:</label>
-  <input type="text" id="textbox" name="textbox">
-  <br>
-  <button type="submit">Submit</button>
-</form>
+    <label for="textbox">Enter a number:</label>
+    <input type="text" id="textbox" name="textbox">
+    <br>
+    <input type="checkbox" id="checkbox" name="checkbox">
+    <label for="checkbox">Multiply by 2</label>
+    <br>
+    <button type="button" onclick="calculate()">Submit</button>
+    <br>
+    <label for="result">Result:</label>
+    <span id="result"></span>
+  </form>
+  <script>
+    function calculate(){
+      let num = document.getElementById("textbox").value;
+      let checkbox = document.getElementById("checkbox").checked;
+      if(num>0){
+          if (checkbox) {
+              let result = num * 2;
+              document.getElementById("result").innerHTML = result;
+          }else{
+              document.getElementById("result").innerHTML = num;
+          }
+      }else{
+          document.getElementById("result").innerHTML = "Please enter a positive number";
+      }
+    }
+  </script>
+  
