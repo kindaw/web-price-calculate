@@ -1,29 +1,40 @@
 <form>
-    <label for="textbox">Enter a number:</label>
-    <input type="text" id="textbox" name="textbox">
-    <br>
-    <input type="checkbox" id="checkbox" name="checkbox">
-    <label for="checkbox">Multiply by 2</label>
-    <br>
-    <button type="button" onclick="calculate()">Submit</button>
-    <br>
-    <label for="result">Result:</label>
-    <span id="result"></span>
-  </form>
-  <script>
-    function calculate(){
-      let num = document.getElementById("textbox").value;
-      let checkbox = document.getElementById("checkbox").checked;
-      if(num>0){
-          if (checkbox) {
-              let result = num * 2;
-              document.getElementById("result").innerHTML = result;
-          }else{
-              document.getElementById("result").innerHTML = num;
-          }
-      }else{
-          document.getElementById("result").innerHTML = "Please enter a positive number";
+  <label for="textbox">research point:</label>
+  <input type="text" id="textbox" name="textbox">
+  <br><br>
+  <input type="checkbox" id="checkbox1" name="checkbox1" value="value1">
+  <label for="checkbox1">Premium account</label>
+  <br><br>
+  <input type="checkbox" id="checkbox2" name="checkbox2" value="value2">
+  <label for="checkbox2">NoPremium account</label>
+  <br><br>
+  <input type="button" value="Calculate" onclick="calculate()">
+  <br><br>
+  <label for="result">Result:</label>
+  <output id="result"></output>
+</form>
+
+<script>
+  function calculate() {
+    var textboxValue = document.getElementById("textbox").value;
+    var checkbox1Value = document.getElementById("checkbox1").checked;
+    var checkbox2Value = document.getElementById("checkbox2").checked;
+    var result;
+    if(checkbox1Value){
+      if(!isNaN(textboxValue)) {
+        result = (textboxValue / 10000) * 120;
+      } else {
+        alert('Please enter a valid number')
       }
+    } else if (checkbox2Value) {
+      if(!isNaN(textboxValue)) {
+        result = (textboxValue / 10000) * 235;
+      } else {
+        alert('Please enter a valid number')
+      }
+    } else {
+      document.getElementById("result").innerHTML = '';
     }
-  </script>
-  
+    document.getElementById("result").innerHTML = result;
+  }
+</script>
